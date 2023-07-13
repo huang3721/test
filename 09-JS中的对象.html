@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义对象
+        var obj = {
+            name:'hxh',
+            age:18,
+            sayHi:function(){
+                console.log('大家好')
+            }
+        }
+        console.log(obj.name)
+
+        //通过构造函数定义对象
+        function Person(a,n){
+            this.name = n,
+            this.age = a
+        }
+        var p = new Person(18,'jjj')
+        console.log(p.name)
+    </script>
+</body>
+</html>

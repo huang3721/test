@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>实验5-1</title>
+	<script>
+		function f1 ()
+		{
+			var obj = document.getElementById('objects');
+			var name = document.getElementById('inputname').value;
+			obj.innerHTML += name +'\n';
+		}
+		function f2()
+		{
+			var obj = document.getElementById('objects');
+			obj.innerHTML = '';
+		}
+
+	</script>
+	<style>
+		h2{
+			background-color: aquamarine;
+		}
+	</style>
+</head>
+<body>
+	<h2>循环、条件语句</h2>
+	<script>
+		for(var i = 0; i < 10 ;i++)
+		{
+			document.write("第"+i+"次</br>");
+		}
+        if(0.1+0.2 != 0.3)
+		{
+			document.write("(0.1+0.2 != 0.3)");
+		}
+	</script>
+	<h2>获取文档信息</h2>
+	<script>
+		document.write(window.document.URL);
+		document.write("</br>");
+	</script>
+	<h2>history对象</h2>
+	<script>
+		function go2()
+		{
+			window.history.go();
+		}
+		function back2()
+		{
+			window.history.back();
+		}
+		function forward2()
+		{
+			window.history.forward();
+		}
+	</script>
+	<button onclick="go2()">go</button>
+	<button onclick="back2()">back</button>
+	<button onclick="forward2()">forward</button>
+
+	<h2>Location对象</h2>
+	<script>
+		document.write(Location.name+location.pathname);
+	</script>
+    <h2>增添删除</h2>
+	<input id="inputname" type="text">输入用户<br>
+	<button onclick="f1()">添加用户</button>
+	<button onclick="f2()">删除用户</button><br>
+	<textarea id="objects" cols="30" rows="10"></textarea><br>
+	<h2>数据类型</h2>
+	<h3>子字符串</h3>
+	<script>
+		var substr = "Welcome to my world";
+		document.write("字符串:Welcome to my world</br>");
+		document.write("substring(0,7):"+substr.substring(0,7))
+		document.write("</br>charAt(0):"+substr.charAt(0));
+		document.write("</br>indexOf(W):"+substr.indexOf('W'));
+	</script>
+	<h3>大小写转换</h3>
+	<script>
+		var mystr = "My name is ZJD ";
+		document.write("字符串:My name is ZJD");
+		document.write("</br>");
+		document.write("全大写:"+mystr.toUpperCase());
+		document.write("全小写:"+mystr.toLowerCase());
+	</script>
+	<h3>字符串长度</h3>
+	<script>
+		var myname = "my name is huangxiaohan";
+		document.write("'my name is huangxiaohan'的长度(包含空格)"+myname.length);
+		
+	</script>
+	<h3>数据类型转换</h3>
+	<script>
+		var vnum = 3.14;
+		var vbill = 1986;
+		var vname = "huang";
+
+		document.write(vnum);
+		document.write("</br>");
+		document.write(vbill/3);
+		document.write("</br>");
+		var a = parseInt(vnum);
+		document.write("int(3.14)"+a);
+		document.write("</br>");
+
+		var str = "37.5 I love my girl back";
+		var str2 = "I love my girl back";
+		var number = parseInt(str);
+		document.write("int(I love my girl back)="+number);
+		document.write("</br>");
+		//window.alert("int(I love my girl back)"+number);
+		var dd = parseFloat("36.55 is very hot");
+		document.write("float(36.55 is very hot)="+number);
+		document.write("</br>");
+		//window.alert(dd);
+
+
+		var str3="my name is zjd";
+		document.write("my name is zjd【0】="+str3[0]);
+		document.write("</br>");
+		//alert(str3.indexOf('y'));
+
+		var names = new  Array();
+		names[0] = "A";
+		names[1] = "B";
+		names[2] = "C";
+		//alert(names.length);
+		//alert(names[0]+"\n"+names[4]);
+
+		//建立对象
+		var person = {name:"黄晓涵",age:"21",juan:f1()};
+		document.write("对象：person.name"+person.name+"   "+"年龄：person.age"+person.age);
+		//alert(person.name);
+		</script>
+		<h2>数组</h2>
+		<p>数组是一组数据项聚合在一起形成的单元</p>
+		<p>不同于JavaScript的其他变量，数组在使用
+			前必须声明</p>
+		<script>
+			var scores = new Array(4);
+			scores[0] = 69;
+			scores[1] = 88;
+			scores[2] = 90;
+			scores[3] = 99;
+			var scores2 = new Array(69,88,90,99);
+			for(var i =0;i<scores.length;i++)
+			{
+				document.write("score第"+i+"个元素"+scores[i]+"</br>");
+			}
+			for(var i =0;i<scores2.length;i++)
+			{
+				document.write("score第"+i+"个元素"+scores2[i]+"</br>");
+			}
+		</script>
+		<p>数组像字符串一样有长度，表达的是其中
+			元素的个数</p>
+		<p>数组的长度是可以改变的</p>
+		<p>可以在声明的时候不去上面存储空间，然
+			后根据具体的值的赋值情况来动态变革
+			</p>
+		<script>	
+			var changelen = new Array();
+			changelen[0] = "A";
+			changelen[1] = "B";
+			changelen[2] = "C";
+			document.write("目前数组长度"+changelen.length+"</br>");
+			document.write(changelen[0]+changelen[1]+changelen[2]+"</br>");
+			changelen[5] = "F";
+			document.write("目前数组长度"+changelen.length+"</br>");
+			document.write(changelen[0]+changelen[1]+changelen[2]+changelen[3]+changelen[4]+changelen[5]+"</br>");
+		</script>
+		<h2>字符串数组</h2>
+		<script>
+			names1 = new Array(30);
+			names1[0] = "anhui university";
+			names1[1] = "qinghua university";
+
+			names2 = new Array("anhui university","qinghua university");
+
+			names3 = ["anhui university","qinghua university"]
+
+			document.write(names1[0]+names1[1]+"长度"+names1.length+"</br>");
+			document.write(names2[0]+names2[1]+"长度"+names2.length+"</br>");
+			document.write(names3[0]+names3[1]+"长度"+names3.length+"</br>");
+		</script>
+</body>
+</html>

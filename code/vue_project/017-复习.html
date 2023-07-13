@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>vue指令</h1>
+        <h2>vue-html</h2>
+        <div>
+            <p v-html="msg"></p>
+        </div>
+        <h2>vue-show</h2>
+        <div>
+            <h3 v-show="flag">huangxiaohan2023</h3>
+        </div>
+        <h2>vue-if</h2>
+        <div>
+            <p v-if="score>90">优秀</p>
+            <p v-else-if="score>70">良好</p>
+            <p v-else-if="score>60">及格</p>
+        </div>
+        <h2>vue-on</h2>
+        <div>
+            <button @click="score++">加1</button>
+            <span>{{score}}</span>
+            <button @click="score--">减1</button>
+            <button @click="fn(50)">加50</button>
+        </div>
+        <h2>vue-bind</h2>
+        <div>
+            <button @click="index++" v-show="index < 2">下一本</button>
+            <div>
+                <p>{{books[index].name}}</p>
+                <img :src="imgs[index]" alt="">
+            </div>
+            <button @click="index--" v-show="index > 0">上一本</button>
+        </div>
+        <h2>vue-for</h2>
+        <div>
+            <ul>
+                <li v-for="(item,index) in books">{{books[index].name}}</li>
+            </ul>
+            <ul>
+                <li v-for="(item,index) in books">{{item.name}}</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg: '<a href="www.baidu.com"></a>',
+                flag:true,
+                score:100,
+                index:0,
+                books:[
+                    {name:'红楼梦'},
+                    {name:'三国演义'},
+                    {name:'西游记'}
+                ],
+                imgs:[
+                    './qq.png',
+                    './wechat.png',
+                    './wxcom.png'
+                ]
+            },
+            methods:{
+                fn(a){
+                    this.score = this.score + a
+                }
+            }
+        })
+    </script>
+</body>
+</html>

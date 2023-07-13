@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px;
+        }
+    </style>
+
+</head>
+<body>
+    <!--
+        vue指令
+        vue根据不同的指令，针对标签实现不同的功能。
+        指令：带有v-前缀的特殊标签属性
+    -->
+
+    <script>
+        /*
+        v-show 控制元素的显示,切换css,display:none
+
+        v-if 控制元素的创建和移除
+            v-else
+            v-else-if
+
+        v-on 注册事件 = 添加监听 + 提供处理的逻辑
+            语法:v-on：事件名 = ‘内联语句’
+            语法:v-on：事件名 = ‘methon’
+            简写 @事件名 = ‘’
+            v-on 调用传参
+
+        v-bind 
+            作用：动态设置html的标签属性 src url title
+            语法：v-bind:属性名="表达式"
+            简写:  :
+
+        v-for 
+            作用：基于数据循环，多次渲染整个元素。数组、对象、数字
+            语法: v-for='(item,index) in 数组'
+
+            key的作用：给元素添加唯一标识
+            不加key 默认行为会尝试原地修改元素
+            添加唯一元素，便于正确排序复用
+
+        v-model 
+            作用：给表单元素使用，双向数据绑定->可以快速获取或设置表单元素的内容
+            数据变化->视图自动更新
+            视图变化->数据自动更新
+        */
+    </script>
+    <div id="app">
+        <p v-if="gender==1">性别：男</p>
+        <p v-else>性别：女</p>
+        <hr>
+        <p v-if="score>=900">成绩评定A</p>
+        <p v-else-if="score>=70">成绩评定B</p>
+        <p v-else-if="score>=60">成绩评定C</p>
+        <p v-else-if="score>=50">成绩评定F</p>
+
+        <div v-show="flag" class="box">我是一个v-show控制盒子</div>
+        <div v-if="flag" class="box">我是一个v-is控制盒子</div>
+        <hr>
+        <hr>
+
+        <button v-on:click="count--">-</button>
+        <span>{{count}}</span>
+        <button v-on:mouseenter="count++">+</button>
+        <button @click="count=count+10">+</button>
+
+        <hr>
+        <button @click="fn">切换显示隐藏"黑马程序员"</button>
+        <h1 v-show="isShow">黑马程序员</h1>
+
+        <hr>
+
+        <div class="box">
+            <h3>小黑自动售货机</h3>
+            <button @click="buy(5)">可乐5元</button>
+            <button @click="buy(10)">咖啡10元</button>
+            <button @click="buy(6)">牛奶6元</button>
+        </div>
+        <p>账户余额：{{money}}元</p>
+
+        <hr>
+        <hr>
+        <hr>
+        <img v-bind:src="imgUrl" :title="title">
+
+        <hr>
+        <hr>
+        <hr>
+
+        <button @click="index--" v-show="index > 0">上一张</button>
+        <div><img :src="imglist[index]" alt=""></div>
+        <button @click="index++" v-show="index < imglist.length-1">下一张</button>
+
+        <hr>
+        <hr>
+        <hr>
+
+        <h3>小黑水果店</h3>
+        <ul>
+            <!--li需要多次渲染-->
+            <!-- <li>水果1</li>
+            <li>水果2</li>
+            <li>水果3</li> -->
+
+            <li v-for="(item,index) in fruits">{{item}}</li>
+        </ul>
+
+        <hr>
+        <hr>
+        <hr>
+
+        <div>
+            账号：<input type="text" v-model="username"><br>
+            密码：<input type="password" v-model="passwd"><br>
+            <button @click="login">登录</button>
+            <button @click="reset">重置</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            //提供数据
+            data:{
+                flag:true,
+                gender: 1,
+                score: 100,
+                count:10,
+                isShow:true,
+                money:100,
+                imgUrl:'./wechat.png',
+                title:'微信',
+                index: 0,
+                username:'huangxiaohan',
+                passwd:'',
+                imglist: [
+                './wechat.png',
+                './qq.png',
+                './wxcom.png'
+                ],
+
+                fruits:[
+                    '西瓜',
+                    '苹果',
+                    '香蕉'
+                ]
+            },
+            //提供方法
+            methods:{
+                //提供的所有函数,this都指向当前实例app
+                fn(){
+                    console.log('执行了fn',app.isShow)
+                    //app.isShow = !app.isShow
+                    this.isShow = !this.isShow
+                },
+                buy(a){
+                    this.money -= a
+                },
+                login(){
+                    console.log(this.username,this.passwd)
+                },
+                reset(){
+                    this.username=''
+                    this.passwd=''
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

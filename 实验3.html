@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验三</title>
+    <style>
+        h1{
+            background-color: aqua;
+            font-size: 36px;
+            font-family: 'Courier New', Courier, monospace;
+            color: black;
+            text-align: center;
+        }
+        h2{
+            background-color: cadetblue;
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: blueviolet;
+        }
+        p
+        {
+            font-size: 20px;
+            color: black;
+        }
+        body{
+            background-color: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>实验三---表单</h1>
+    <h2>11.表单</h2>
+    <p>HTML不但可以显示信息，还可以搜集信息并把信
+        息发送给服务端的成立程序处理。
+        因此，它是客户端和服务端传递信息的桥梁，是
+        实现用户和服务器互动的主要方式。</p>
+    <p>Form元素是表达的的容器，用于包含其他表单元
+        素。
+        设定表单的起止位置，并指定表单处理的服务端
+        程序</p>
+    <p>用户与表单交互是通过控件进行的，控件通过
+        name属性标识，该属性的作用范围是空间所在的
+        form元素内。<br>
+        每个控件有一个初始值，也有一个当前值，值的
+        类型都是字符串。</p>
+    <h2>12.文本框和密码框</h2>
+    普通文本框
+    <input name="普通文本框" type="text">
+    <br>
+    密码文本框
+    <input type="password" name="密码文本框" >
+    <h2>13.创建复选框</h2>
+    <p>创建复选框</p>
+    北京大学
+    <input type="checkbox" name="mycheckbox"><br>
+    清华大学
+    <input type="checkbox" name="mycheckbox"><br>
+    安徽大学
+    <input type="checkbox" name="mycheckbox" checked="checked"><br>
+    <h2>14.创建单选框</h2>
+    <p>创建单选按钮</p>
+    <input type="radio" name="myradio" >清华大学
+    <input type="radio" name="myradio" >武汉大学
+    <input type="radio" name="myradio" >南京大学
+    <h2>15.创建提交按钮</h2>
+    创建提交按钮，单击时表单信息被提交<br>
+    <input type="submit" name="mysubmit" id=""><br>
+    创建重置按钮
+    <br>
+    <input type="reset" name="myreset" id="">
+    <h2>16.创建文本选择框</h2>
+    创建文本选择框<br>
+    <input type="file" name="myfile" id="">
+    <h2>17.创建图形按钮</h2>
+    创建图形按钮<br>
+    <input type="image" name="myimage" src="./qq.png">
+    <h2>18.创建普通按钮</h2>
+    使用button元素创建按钮<br>
+    <button name="mysubmitbutton" value="Submit" type="submit">提交</button>
+    <h2>19.使用button元素创建按钮</h2>
+    使用button元素创建按钮<br>
+    <button name="mysubmitbutton" value="Submit" type="submit">提交</button>
+    <h2>19.使用图形标签按钮</h2>
+    <button type="button"><img src="./qq.png" alt=""><br>qq</button>
+    <h2>20.创建组合框控件</h2>
+    <select name="myselect" multiple="multiple">
+        <option value="1">武汉大学</option>
+        <option value="2">南京大学</option>
+        <option value="3">华东师范</option>
+        <option value="4">南京师范</option>
+        <option value="1">武汉大学</option>
+        <option value="2">南京大学</option>
+        <option value="3">华东师范</option>
+        <option value="4">南京师范</option>
+    </select>
+    <h2>21.创建列表控件</h2>
+    <select name="myselect">
+        <option selected="selected">武汉大学</option>
+        <option selected="selected">南京大学</option>
+        <option selected="selected">华东师范</option>
+        <option selected="selected">南京师范</option>
+    </select>
+    <h2>22.创建成组选项</h2>
+    <select name="myselcet" size="20" multiple="multiple">
+        <optgroup label="学校">
+            <option>清华大学</option>
+            <option>安徽大学</option>
+            <option>武汉大学</option>
+            <option>南京大学</option>
+        </optgroup>
+        <optgroup label="专业">
+            <option>地理信息科学</option>
+            <option>软件工程</option>
+        </optgroup>
+    </select>
+    <h2>23.创建多行文本框</h2>
+    <p>编辑信息</p>
+    <p>
+        <textarea cols="30" rows="10">诗酒趁年华，且将新火试新茶</textarea>
+    </p>
+    <br>
+    <input type="submit" value="发送">
+    <input type="submit" value="重置">
+    <h1>网页上的表格</h1>
+    <p>在网页上使用表格有两个目的，
+        一是在表格中安排数据从而呈现表格间的关
+        系<br>
+        二是在网页上组织图形或文本，进行页面的
+        布局</p>
+    <h2>1.1创建表格</h2>
+    <table border="1">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>1.2设置边框</h2>
+    <table border="4">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <table border="2">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>2.设置表格的宽度</h2>
+    <table border="2" width="300">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>3.设置表格的对齐</h2>
+    <table border="3" align="center" width="200">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>4.表格的描述</h2>
+    <table border="2" summary="表单的描述"> 
+        <tr>
+            <td>GIS</td>
+            <td>GIS</td>
+            <td>GIS</td>
+        </tr>
+        <tr>
+            <td>GIS</td>
+            <td>GIS</td>
+            <td>GIS</td>
+        </tr>
+        <tr>
+            <td>GIS</td>
+            <td>GIS</td>
+            <td>GIS</td>
+        </tr>
+    </table>
+    <h2>5.表格的背景颜色</h2>
+    <table border="2" summary="表单的描述bulabulabula" width="200" bgcolor="#00CCCC">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <table border="2" summary="表单的描述bulabulabula" width="200" bgcolor="#CCCC00">
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>6.表格的标题</h2>
+    <table border="2" summary="表单的描述bulabulabula" width="200" bgcolor="#CCCC00">
+    <caption>我的表单</caption>
+        <tr>
+            <td>Q</td>
+            <td>W</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>R</td>
+        </tr>
+    </table>
+    <h2>7.设置单元格</h2>
+    <table border="2" width="250" bgcolor="#CCCC11" align="center">
+        <caption>设置单元格</caption>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+    </table>
+    <h2>8.跨多列的单元格</h2>
+    <table border="2" width="200" bgcolor="#CCC555" align="center">
+        <caption>跨多行 多列</caption>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>统计</td>
+            <td colspan="3">100</td>
+        </tr>
+    </table>
+    <h2>9.跨多行的单元格</h2>
+    <table border="2" align="center">
+        <caption>跨多行的单元格</caption>
+        <tr>
+            <th>A</th>
+            <th rowspan="2">X</th>
+            <th>B</th>
+            <th rowspan="2">Y</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+    </table>
+    <h2>10.跨多列的单元格</h2>
+    <table border="1">
+        <caption>跨多列的单元格</caption>
+        <tr>
+            <td>类型</td>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>值</td>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>合计</td>
+            <td colspan="3">700</td>
+        </tr>
+    </table>
+</body>
+</html>

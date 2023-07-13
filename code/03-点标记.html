@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点标记</title>
+
+    <!--引入高德API-->
+    <script>
+        window._AMapSecurityConfig = {
+            securityJsCode:'68b0c1a94ad4be432986beed1550e9ce'
+        }
+    </script>
+    <script type="text/javascript"></script>
+    <script src = 'https://webapi.amap.com/maps?v=2.0&key=d5478e6f8ef17af10283e8e765672753'></script>
+
+    <style>
+        html,body,#map_container{
+            width: 100%;
+            height: 100%;
+        }
+        #tools{
+            width: 100%;
+            height: 4%;
+        }
+        .binglie{
+            float: left;
+            display: inline;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="tools">
+        <div class="binglie">
+            <button onclick="add()">显示卫星图</button>
+            <button onclick="remove()">关闭卫星图</button>
+            <button onclick="draw()">绘制折线</button>
+        </div>
+        <div class="binglie">
+            <div class="binglie">
+                坐标拾取：
+                <input type="text" id="lnglat">
+            </div>
+            <div class="binglie">
+                右键点击标记点
+            </div>
+        </div>
+    </div>
+
+    <div id="map_container">
+
+    </div>
+
+    <script>
+        //实例化并加载地图
+        var map = new AMap.Map('map_container',{
+
+        })
+        var satellite_map = new AMap.TileLayer.Satellite()
+
+        function add(){
+            map.add(satellite_map)
+        }
+        function remove(){
+            map.remove(satellite_map)
+        }
+        function draw(){
+            var path = [
+                new AMap.LngLat(116.3, 39.8),
+                new AMap.LngLat(116.47, 39.87),
+                new AMap.LngLat(116.37, 39.9),
+                new AMap.LngLat(116.4, 39.896)
+                ]
+
+            var ployline = new AMap.Polyline({
+                path:path,
+                isOutline: true,
+                outlineColor: '#ffeeff',
+                borderWeight: 3,
+                strokeColor: "#3366FF",
+                strokeOpacity: 1,
+                strokeWeight: 6,
+                // 折线样式还支持 'dashed'
+                strokeStyle: "solid",
+                // strokeStyle是dashed时有效
+                strokeDasharray: [10, 5],
+                lineJoin: 'round',
+                lineCap: 'round',
+                zIndex: 50,
+            })
+            ployline.setMap(map)
+        }
+        //加载工具,plugin方式
+        map.plugin(['AMap.HawkEye','AMap.ControlBar','AMap.ToolBar','AMap.MapType','AMap.MouseTool'],function(){
+            map.addControl(new AMap.HawkEye()),
+            map.addControl(new AMap.ControlBar()),
+            map.addControl(new AMap.ToolBar()),
+            map.addControl(new AMap.MapType()),
+            map.addControl(new AMap.MouseTool(map))
+        })
+    </script>
+    <script>
+        //拾取坐标
+        map.on('click',function(e){
+            document.getElementById('lnglat').value=e.lnglat.lng+','+e.lnglat.lat;
+        })
+        //点标记
+        map.on('rightclick',function(e){
+            var mark = new AMap.Marker({
+                position : [e.lnglat.lng,e.lnglat.lat],
+                icon: '//vdata.amap.com/icons/b18/1/2.png',
+                title : '兴趣点'
+            })
+            map.add(mark)
+            console.log([e.lnglat.lng,e.lnglat.lat])
+        })
+        
+
+    </script>
+</body>
+</html>

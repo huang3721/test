@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验二</title>
+    
+    <style>
+        p{
+            color: rgb(1, 7, 7);
+        }
+        .sample
+        {
+            color: brown;
+        }
+        h2{
+            font-style: italic;
+            font-weight: 100;
+            color: coral;
+            background-color: aqua;
+        }
+        h1  {
+             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+             font-size: smaller;
+            background-color: blanchedalmond;
+            }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: large;color: black;" align="center">网页程序设计</h1>
+    <hr align="left" width="100%" color="red">
+    <h2>前言</h2>
+    <p>前言：
+        万维网是一个庞大的浩瀚的资源库，信息库，HTML 超链接是各个 web 资源之间的纽
+        带。超链接是当前 web 成功的一个关键。<br>
+        超链接有两个端点和一个方向：链接开始与“源”端并指向“终”端。从源到终的指
+        向就是超链接的方向。源端存在于定义链接的文档中，终端则通过一个链接属性来指定。<br>
+        通常，一个终端指向一个特定的 web 资源，如一个 HTML 文档、一个图像、一个影音
+        文件、一段声音等等，也可以指向当前文档。</p>
+    <h2>1 两类链接</h2>
+    <p>link 元素只能出现在 HTML 文档的头部；它定义了当前文档与另一个资源之间的联系，尽
+        管 link 没有内容显示，而它定义的联系依然会被某些用户浏览器渲染。<br>
+        a 元素只能出现在 HTML 文档的 body 部分；它定义了当前文档中某个区域和另一个资源之
+        间的联系。a 元素的内容（文本、图像等）将本浏览器呈现，并且浏览器通常会突出显示这
+        个内容来指出连接的存在。</p>
+    <p class="sample">例子</p>
+    <a href="https://www.runoob.com/">这是一个网址链接：菜鸟网站</a>
+    <br>
+    <a href="页面格式.html">这是一个站内链接</a>
+    <br>
+    <a href="">这是一个图片链接</a>
+    <br>
+    <a href="#here">锚点链接,链接到 <i style="color: black;">14 定义基准地址</i></a>
+    <h2>2 两类路径</h2>
+    <p>每个网页作为都有一个唯一的地址，称作为统一资源定位符（URI）
+        绝对路径：URI 的完整路径称为绝对路径，是文档在 WWW 空间上的唯一定位地址；
+        2
+        相对路径：省略掉当前文档和所链接的文档的 URI 中前面的相同部分，就构成了相对路径。
+        相对路径优点：简单；便于网站迁移。
+        绝对路径：parser</p>
+    <h2>3 三个区分</h2>
+    <p>URI（Uniform Resource Identifier，统一资源标识符）
+        定位任何远程或本地的可用资源<br>
+        URL（Uniform Resource Locator，统一资源定位符）
+        URI 的子集<br>
+        URN（Uniform Resource Name，统一资源名称）
+        URI 的另一个子集。<br>
+        NID（Namespace Identifier，命名空间标识）<br>
+        NSS（Namespace Specific String，命名空间具体字符串）
+        urn: <NID>:<NSS><br>
+        urn:isbn:9867529995 <br>
+        urn:uuid:6e834430-9v3a-lld9-9969-012334466</p>
+    <h2>4 本地链接和服务器链接</h2>
+    <p><a href="协议名://主机名/form.html">绝对地址连接</a>
+        <a href="相对路径/form.html">相对地址链接</a></p>
+    <h2>5 a 链接</h2>
+    <p>链接类型</p>
+    <ul>
+        <li>链接到其他文档或文件</li>
+        <li>命名锚点链接</li>
+        <li>电子邮件链接</li>
+        <li>空白链接或者脚本链接</li>
+    </ul>
+    <p>URL状态</p> 
+    <ul>
+        <li>未访问链接</li>
+        <li>已经选择链接</li>
+        <li>已经访问链接</li>
+    </ul>
+    <h2>6 链接的目标窗口</h2>
+    <p>用target属性定义目标窗口打开的是窗口还是框架<br></p>
+    <p class="sample">例子</p>
+    <a href="https://www.runoob.com/" target="_blank">新窗口</a>
+    <a href="https://www.runoob.com/" target="_parent">子窗口</a>
+    <a href="https://www.runoob.com/" target="_top">删除框架</a>
+    <h2>7 定义链接提示</h2>
+    <a href="https://www.runoob.com/" title="菜鸟网站">tip</a>
+    <h2>8 链接到电子邮件</h2>
+    <a href="https://mail.qq.com/cgi-bin/frame_html">我的邮箱</a>
+    <h2>9 链接到可下载文件</h2>
+    <a href="../2019版地理信息科学本科专业人才培养方案.pdf"download="地信.pdf">下载培养方案</a>
+    <h2>10 空链接和脚本链接</h2>                                
+    <a href="javascript:;">空链接</a>
+    <a href="javascript:alert('这是一个脚本链接')">脚本链接</a>
+    <h2>11 书签定义</h2>
+    <p>步骤：</p>
+    <ol>
+        <li>定义锚点</li>
+        <li>指向锚点</li>
+    </ol>
+    <p class="sample">例子</p>
+    <a href="#here">指向<big> 14 定义基准地址</big>的锚点</a>
+    <h2>12 link链接--文档关系链接</h2>
+    <p>Link 元素只能出现在 html 文档的头部，它定义了当前文档和另一个资源（文档）之间的联
+        系，尽管 link 没有内容显示，而它定义的联系依然会被某些用户浏览器渲染，但不会被呈
+        现出来。</p>
+    <p><元素 元素属性=“属性值”元素属性 2=“属性值 2”></元素>
+    </p>
+    <h3>12.1链接到外部样式表</h3>
+    <p><link href="mycss.css" rel="stylesheet" type="text/css" />
+        Rel 属性值定义为 stylesheet；
+        Type 属性定义为 type/css</p>
+    <h3>12.2使用link元素说明文档集合之间的关系</h3>
+    <h4>Start</h4>
+    表明链接指向文档所在文档集合中的起始文档
+    <h4>Next</h4>
+    表明链接指向当前文档所在文档集合中的下一个文档。浏览器可以根据该属性的值，预加载
+下一个文档
+    <h4>Contents</h4>
+    表明链接指向的文档是一个内容表，也就是目录。一些浏览器可以使用 TOC（table of
+Contents）实现列表功能。
+    <h4>Index</h4>
+    表明链接指向的问答是为当前文档提供索引的一个文档
+    <h4>Glossary</h4>
+    表明链接指向的文档是附属于当前文档、而为文档中的术语提供说明的文档
+    <h4>Chapter</h4>
+    表明链接指向的文档是当前文档所在的文档集合中的一章内容
+    <h4>Section</h4>
+    表明链接指向的文档是当前文档所在的文档集合中的一段文本
+    <h4>Subsection</h4>
+    表明链接指向的文档是当前文档所在的文档集合中的一段文本的节选
+    <h4>Appendix</h4>
+    <h3>12.3使用link元素链接到当前文档的替代版本</h3>
+    使用 alertnate 属性，说明链接到的是当前文档的替代版本<br>
+Hreflang 属性说明链接的是当前文档的另一个语音的版本；<br>
+Media 属性说明是当前文档另一个不同介质的版本
+    <h3>12.4使用rel属性链接到版权说明和帮助</h3>
+    <link rel="copyright" href="./说明文档.html">
+    <link rel="help" href="页面格式.html">
+    <h3>12.5使用rel属性链接到书签</h3>
+    表明链接指向的文档是当前文档所在的文档集合中的附录文档
+    <h2>13 link 元素和搜索引擎</h2>
+    <p>使用 link 元素可以为搜索引擎提供一系列的信息
+        包括：链接到另一种语言版本的文档；
+        链接到其他介质版本的文档，如供打印的版本
+        链接到文档集合的起始页</p>
+    <h2 id="here">14 定义基准地址</h2>
+    <br><br><br>
+    <img src="./image/1.jpg" alt="qq头像" width="100px"height="100px">
+    <img src="http://jwc.ahu.edu.cn/_upload/tpl/05/42/1346/template1346/images/head-logo.png" alt="">
+</body>
+</html>

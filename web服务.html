@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1.0,user-scable=no,width=device-width">
+        <title>基于Webservice的Web地图服务</title>>
+        <script src="https://webapi.amap.com/maps?v=1.4.15&key=1a37a5cfea9cc8e1dd23cdb521ef1510"></script>
+        <style>
+            html,
+            body,
+            #container {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>>
+    <body>
+        <div id="container"></div>>
+        <script>
+            //加载一张图片作为底图
+            var imageLayer = new AMap.ImageLayer({
+                url:"bjzoon.jpeg",
+                bounds: new AMap.Bounds(
+                    [116.327911,39.939229],
+                    [116.342659,39.946275]
+                ),
+                zooms: [15,18]
+            });
+            var map = new AMap.Map("container",{
+                resizeEnable: true,
+                center: [116.33719,39.942384],
+                zoom:15,
+                layers: [
+                    new AMap.TileLayer(),
+                    imageLayer
+                ]
+            });
+            //加载WMS服务
+            var wms2 = new AMap.TileLayer.WMS({
+                url: ' https://wms.openstreetmap.de/wms',
+                blend : false,
+                tileSize:512,
+                params:{'LAYERS': 'GURS-country-election-units,Guben',VERSION: '1.3.0'}
+            });
+         wms2.setMap(map);
+         map.setCenter([14.73,51.94]);//设置地图中心点，将地图移动到当前位置（遥感影像的对应位置
+        </Script>
+    </body>>
+</html>
+

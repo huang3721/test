@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验一</title>
+    <style>
+        h1{
+            color: brown;
+            text-align: center;
+            background-color: aqua;
+            font-size: 30px;
+            font-weight:600;
+            font-stretch: expanded;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h2{
+            background-color: aquamarine;
+            font-weight: 300;
+        }
+        h3{
+            background-attachment: fixed;
+            background-color: rgb(96, 158, 173);
+            font-weight: 200;
+        }
+        .sample
+        { 
+            color: blue;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 300;
+            width: 35px;
+            height: auto;
+            background-color: rgb(247, 189, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>网页程序设计-实验一</h1>
+    <h2>前言</h2>
+    <div><p>SGML 是 HTML 的超集，标准通用标签语言。规定了独立于平台和应用程序的文本文
+        档的格式、索引和链接信息。描述：结构（DTD），内容（标题、段落、项目、列表）和样
+        式（DSSSL-文档样式语义和规范语言）。<br>
+        欧洲原子核研究委员会研究用 Berners-Lee 发明了 HTML 语言。Html 的出现就是为了
+        避免互联网的分裂。避免“鸡同鸭讲”。<br>
+        浏览器就是 html 的解释器或者翻译机。除了我们常用的浏览器，国外还特别重视弱势
+        群体获取信息的权利，在 html 标准制定时，有些规定是专门为了特点的语音合成设备制定
+        的，以帮助盲人阅读到 html 上表述的信息。那么整个语音合成器也是 html 的一个解释器和
+        翻译机</p>
+    </div>
+    <h2>1网页的组成</h2>
+    <ul>
+        <li>HTML</li>
+        <li>Head</li>
+        <li>Body</li>
+    </ul>
+    <h2>2标签和元素</h2>
+    <p><pre>  <></> 标签（通常成对出现，也有个别可以单独，如换行）
+        元素：一个元素通常由一个开始标签、内容、其他元素以及一个结束标签组成。
+        <p>&lt;head&gt;&lt;/head&gt 是标签
+        <head><title>This is html</title></head>是元素成为 head 元素。
+        <title>This is html</title>称为 title 元素。</pre></p>
+    <h2>3属性</h2>
+    <p>与元素相关的特性叫做属性。可以为属性赋值，称为属性值。</p>
+    <h2>4字符引用</h2>
+    <p>字符引用</p>
+    <p><p>&lt;!DOCTYPE&gt;<br><p>&lt;html&gt;<br><p>&lt;head&gt;&lt;/head&gt;</p>
+    <p>方式</p>
+    <ol>
+        <li>数字引用</li>
+        <li>实体引用</li>
+    </ol>
+    <h2>5注释</h2>
+    <p>&lt;!--引用--&gt;</p>
+    <h2>6HTML数据类型</h2>
+    <ul>
+        <li>ID 和 NAME 字母、数字、-、_、：.</li>
+        <li>NUMBER 0~9</li>
+        <li>文本字符串</li>
+        <li>URI 通用资源标识符</li>
+        <li>颜色代码</li>
+        <li>#XX XX XX</li>
+    </ul>
+    <p><font color="#ff0000">红色</font></p>
+    <h2>7长度</h2>
+    <ul>
+        <li>像素长度 Pixel</li>
+        <li>比例长度 50%</li>
+    </ul>
+    <h2>8内容类型</h2>
+    <p>Text/html; text/javascript; text/css; image/gif; image/jp</p>
+    <h2>9HTML文档头部定义</h2>
+    <h3>9.1标题</h3>
+    <h3>9.2元数据</h3>
+    <p>Meta 用来描述 HTML 文档的信息；用键值对的方式来表达；</p>
+    <h3>9.3元数据的语音信息</h3>
+    <h3>9.4用于搜索引擎的元数据</h3>
+    <h3>9.5用于http消息报头的元数据</h3>
+    <h2>10结构化文本</h2>
+    <h3>10.1强调</h3>
+    <ul>
+        <li>em强调</li>
+        <li>strong表示强烈强调</li>
+        <li>cite表示对其他资源的引用或参考</li>
+        <li>abbr缩略语形式</li>
+    </ul>
+    <em>em强调</em>
+    <strong>strong强烈强调</strong>
+    as <cite>huangxiaohan</cite> said
+    <abbr title="安徽大学">AHU</abbr>
+    <h3>10.2引用</h3>
+    <p>块级引用</p>
+    <blockquote cite="http://127.0.0.1:5500/%E5%AE%9E%E9%AA%8C1.html"><p>这是一个块引用，浏览器会把这块呈现
+        为一个段缩进文本</p></blockquote>
+    <h3>10.3上下标</h3>
+    <p>5<sup>2</sup>=25</p>
+    <p>H<sub>2</sub>O</p>
+    <h2>11行和段落</h2>
+    <ul>
+        <li>段落p标签</li>
+        <li>强制换行br</li>
+        <li>格式化文本pre</li>
+        <li>中划线del</li>
+        <li>下划线ins</li>
+    </ul>
+    <br>
+    <pre>格式化文本</pre>
+    <p>春风又<del>过</del><ins>绿</ins>江南岸</p>
+    <h2>12字体修改</h2>
+    大小<font size="1">size=1</font>
+    <p><font size="5" color="red">大大大红</font><br><font size="2" color="black">小小小黑</font></p>
+    <h2>13分割线</h2>
+    <p>普通分割线</p>
+    <hr width="50%" size="3">
+    <hr width="50%" size="3" color="red" align="center" >
+    <h2>14创建列表</h2>
+    <ul>
+        <li>有序列表</li>
+        <li>无序列表</li>
+    </ul>
+    有序列表
+    <ol>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+    </ol>
+    无序列表
+    <ul>
+        <li>x</li>
+        <li>y</li>
+        <li>z</li>
+    </ul>
+    <h2>15嵌套列表</h2>
+    <p>嵌套一层</p>
+    <ul>
+        <li>唐诗</li>
+        <li>宋词</li>
+        <ul>
+            <li>如梦令</li>
+            <li>西江月</li>
+        </ul>
+        <li>元曲</li>
+        <li>明清小说</li>
+    </ul>
+    <h2>16定制列表前的符号</h2>
+    <p>对于 ul 列表（无序列表）<br>
+        浏览器可以交错显示列表，也可以在列表项前面显示特定的符号<br>
+        利用 type 属性实现<br>
+        实心圆点 disc <br>
+        空心圆点 circle <br>
+        方块 square</p>
+    <p>定制符号 实心</p>
+    <ul type="disc">
+            <li>w</li>
+            <li>s</li>
+            <li>d</li>
+    </ul>
+    <p>定制符号 空心</p>
+    <ul type="circle">
+        <li>w</li>
+        <li>s</li>
+        <li>d</li>
+    </ul>
+    <p>定制列表 方块</p>
+    <ul type="square">
+        <li>w</li>
+        <li>s</li>
+        <li>d</li>
+    </ul>
+    <p>定制符号混合</p>
+    <ul>
+        <li type="circle">w</li>
+        <li type="disc">s</li>
+        <li type="square">d</li>
+    </ul>
+    <h2>17定制有序列表的序号样式</h2>
+    <ol type="1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <ol type="a">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <ol type="i">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <h2>18定义有序列表的起始数</h2>
+    <ol start="10">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+    </ol>
+    <ol start="10" type="A">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ol>
+    <h2>19定义有序列表中序号的数值</h2>
+    <p>用 value 属性定制有序列表中饿序号的数</p>
+    <p>有序列表 数值指定</p>
+    <ol type="1">
+        <li value="5">a</li>
+        <li value="6">b</li>
+        <li value="7">c</li>
+    </ol>
+    <p>有序列表 数值指定</p>
+    <ol type="A">
+        <li value="5">a</li>
+        <li value="6">b</li>
+        <li value="7">c</li>
+    </ol>
+    <p>用样式表代替 type 属性</p>
+    <ol calss="withRoman">
+        <li value="5">第一列表项</li>
+        <li value="10">第二列表项</li>
+        <li value="15">第三列表项</li>
+    </ol>
+</body>
+</html>

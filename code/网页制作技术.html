@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bold-text{
+        font-size:20px;
+        font-weight: 700;
+    }
+
+    #carousel li{
+        width: 200px;
+        line-height: 200px;
+        position: absolute;
+        text-align: center;
+        text-shadow: 0 0 5px black;
+        font-size: 35px;
+        color: #fff;
+        opacity: 0; 
+        transition: opacity 1s;
+    }
+    #carousel li:nth-child(1){
+        background-color: orange;
+    }
+    #carousel li:nth-child(2){
+        background-color: gold;
+    }
+    #carousel li:nth-child(3){
+        background-color: brown;
+    }
+    #carousel li:nth-child(4){
+        background-color: grey;
+    }
+    #carousel li.active{
+        opacity: 1;
+    }
+    </style>
+
+
+</head>
+<body>
+    <div id="block">默认内容</div>
+    <div id="container">
+        <p>默认内容</p>
+        <p class="item">默认内容</p>
+        <p>默认内容</p>
+        <p>默认内容</p>
+    </div>
+    <ul id="carousel">
+        <li class="active">1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <hr><br><br><br><br><br><br><br><br><br>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+    <script>
+        /*###############1 元素的获取 ###############*/
+
+        // 获取标签
+        var block = document.getElementById('block')
+
+        console.log(block)
+        block.textContent = 'JS设置的文本'
+
+        
+        //var contents = document.getElementsByTagName('p')
+        var contents = document.querySelectorAll('#container p')
+        var textArr = [
+            'ahu','nnu','nju','whu'
+        ]
+        // console.log(contents)
+        // contents[0].textContent = 'bbbbbb'
+        for(var i=0;i<textArr.length;i++){
+            contents[i].textContent = textArr[i]
+        }
+
+        //获取单个元素，匹配第一个元素
+        var secondItem = document.querySelector('.item')
+        secondItem.textContent = 'hhh'
+        secondItem.previousElementSibling.textContent = '划水的🐟'//获取相同类型的上一个
+        secondItem.nextElementSibling.textContent = '游泳的🐟'
+        //获取元素的父元素
+        var container = secondItem.parentNode
+        console.log(container)
+        //获取子元素
+        var items = container.children
+        console.log(items)
+    </script>
+
+    <script>
+        /*###############2 样式处理 ###############*/
+        var block = document.querySelector('#block')
+        block.style.width = '100px'
+        block.style.height = '80px'
+        block.style.backgroundColor = 'tomato'
+       // block.className = 'changeStyle' //切换类名，然后在CSS设置
+    </script>
+
+    <script>
+        /*###############3 文本处理 ###############*/
+        block.innerHTML = '普通内容<span class="bold-text">加粗的文本</span>'
+    </script>
+
+    <script>
+        /*##############4 事件处理 ###############*/
+        block.onclick = function(){
+            alert('我被点击')
+        }
+    </script>
+
+    <script>
+        var carousel = document.getElementById('carousel')
+        var items = carousel.children
+        var prevbutton = document.querySelector('#prev')
+        var nextbutton = document.querySelector('#next')
+
+        var index = 0
+        nextbutton.addEventListener('click',function(){
+            items[index].className = ''
+            if(index===items.length-1)
+            {
+                index = -1
+            }
+            index++
+            items[index].className = 'active'
+        })
+
+        prevbutton.addEventListener('click',function(){
+            items[index].className = ''
+            if(index===0)
+            {
+                index = 4
+            }
+            index--
+            items[index].className = 'active'
+            console.log(index)
+        })
+    </script>
+
+    <script>
+        /*##############5 定时器 ###############*/
+        setTimeout(function(){
+            alert('surpise')
+        },3000)
+
+        var timer = setInterval(function(){
+            console.log('surpise')
+        },2000)//间隔2s重复
+
+        setTimeout(function(){
+            clearInterval(timer)
+        },6000)//6s后清除
+        
+        // setInterval(function(){
+        //     if(index===items.length-1)
+        //     {
+        //         index = -1
+        //     }
+        //     index++
+        //     items[index].className = 'active'
+        // },1500)
+    </script>
+</body>
+</html>

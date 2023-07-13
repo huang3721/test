@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sum1_100() {
+            var sum = 0;
+            for (var i = 1; i <= 100; i++) {
+                sum += i;
+            }
+            document.getElementById('sum').innerHTML = '1+...+100=' + sum;
+        }
+        function gradeclass() {
+            var grades = [33, 55, 99, 66, 77, 44, 88, 73, 62, 59];
+            var class1 = new Array();
+            var class2 = new Array();
+            var class3 = new Array();
+            var class4 = new Array();
+            for (var i = 0; i < grades.length; i++) {
+                if (grades[i] >= 90) {
+                    class1.unshift(grades[i]);
+                }
+                else if (grades[i] <= 90 && grades[i] >= 75) {
+                    class2.unshift(grades[i]);
+                }
+                else if (grades[i] <= 75 && grades[i] >= 60) {
+                    class3.unshift(grades[i]);
+                }
+                else {
+                    class4.unshift(grades[i]);
+                }
+            }
+            document.getElementById('c1').innerHTML = '';
+            document.getElementById('c2').innerHTML = '';
+            document.getElementById('c3').innerHTML = '';
+            document.getElementById('c4').innerHTML = '';
+            for (var i in class1) {
+                document.getElementById('c1').innerHTML += class1[i] + '\n';
+            }
+            for (var i in class2) {
+                document.getElementById('c2').innerHTML += class2[i] + '\n';
+            }
+            for (var i in class3) {
+                document.getElementById('c3').innerHTML += class3[i] + '\n';
+            }
+            for (var i in class4) {
+                document.getElementById('c4').innerHTML += class4[i] + '\n';
+            }
+        }
+        function callength() {
+            var points =
+                [
+                    [30.55045, 114.40418], [30.55046, 114.40467],
+                    [30.55038, 114.40539], [30.55049, 114.40583]
+                ];
+            var totallength = 0;
+            var x = 111;
+            var y = 40008 / 360.0;
+            for (var i = 0; i < points.length - 1; i++) {
+                var dx = Math.pow(((points[i + 1][0] * 1e5 - points[i][0] * 1e5) / 1e5) * x, 2);
+                var dy = Math.pow(((points[i + 1][1] * 1e5 - points[i][1] * 1e5) / 1e5) * y, 2);
+                totallength += Math.sqrt(dx + dy);
+            }
+            document.getElementById('length').innerHTML += '\n' + totallength * 1000 + "KM";
+        }
+    </script>
+    <style>
+        h1 {
+            background-color: aquamarine;
+        }
+
+        button {
+            background-color: rgb(95, 121, 160);
+            width: 90px;
+            height: 38px;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1计算1+...100</h1>
+    <button onclick="sum1_100()">计算</button>
+    <br>
+    <p>
+        <textarea id="sum" cols="30" rows="1"></textarea>
+    </p>
+    <h1>2计算线段长度</h1>
+    <button onclick="gradeclass()">成绩分类</button>
+    <p>
+    <ul>
+        <li>一等：<p id="c1"></p>
+        </li>
+        <li>二等：<p id="c2"></p>
+        </li>
+        <li>三等：<p id="c3"></p>
+        </li>
+        <li>四等：<p id="c4"></p>
+        </li>
+    </ul>
+    </p>
+    <h1>3成绩分级</h1>
+    <button onclick="callength()">计算长度</button>
+    <br>
+    <p id="length"></p>
+</body>
+
+</html>
